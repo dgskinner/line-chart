@@ -1,9 +1,12 @@
 var refresh = function () {
 	var numString = $("#numbers").val();
-	$("#graph").html('<img id="line-chart" src="http://chart.apis.google.com/chart?cht=lc&amp;chs=900x300&amp;chd=t:' + numString + '&amp;" alt="Chart"/>');
+	var $img = $("<img />").attr("src", "http://chart.apis.google.com/chart?cht=lc&chs=900x300&chd=t:" + numString + "&");
+	$img.load( function () {
+        $("#graph").html($img);
+    });
 };
 
 $("button").on( "click", function (event) {
-	event.preventDefault(); 
+	event.preventDefault();
 	refresh();
 });
