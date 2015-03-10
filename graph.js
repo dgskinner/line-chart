@@ -6,7 +6,7 @@ var refresh = function () {
     });
 };
 
-$("button").on( "click", function (event) {
+$("form").on("submit", function (event) {
 	event.preventDefault();
 	refresh();
 });
